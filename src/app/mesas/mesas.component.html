@@ -1,6 +1,6 @@
 <ul class="mesas">
   <li *ngFor="let mesa of mesas">
     <span class="badge">{{mesa.nombre}}</span> {{mesa.fechaDesde}} {{mesa.fechaHasta}}
-    <button *ngIf="!this.isInMesaAdmin" type="button" (click)="selectMesa(mesa)">Anotarse</button>
+    <button *ngIf="!this.isInMesaAdmin" type="button" class="btn btn-success btn-fw" (click)="selectMesa(mesa)">Anotarse</button>
   </li>
 </ul>
