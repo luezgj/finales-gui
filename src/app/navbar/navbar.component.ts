@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { NgbDropdownConfig } from '@ng-bootstrap/ng-bootstrap';
 
+import { Router } from '@angular/router';
+
+import { TokenStorageService } from '../auth/token-storage.service';
+
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
@@ -18,10 +22,17 @@ export class NavbarComponent implements OnInit {
       document.querySelector('.sidebar-offcanvas').classList.remove('active');
     }
   }
-  constructor(config: NgbDropdownConfig) {
+
+  constructor(config: NgbDropdownConfig, private token: TokenStorageService, public router: Router) {
     config.placement = 'bottom-right';
   }
+
   ngOnInit() {
+  }
+
+  logOut() {
+    this.token.signOut();
+    this.router.navigate(['/login']);
   }
 
 }
