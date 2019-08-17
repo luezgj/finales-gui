@@ -1,9 +1,14 @@
-<app-mesas></app-mesas>
-<app-user-carreras [hidden]="!mesas.selectedMesa"></app-user-carreras>
-<button *ngIf="mesas.selectedMesa && carreras.selectedCarrera && carreras.materias.selectedMateria" (click)="generateLog()" >Generar log</button>
+<div class="row">
+  <div class="col-12 grid-margin">
+    <div class="card">
+      <div class="card-body">
 
+				<app-mesas></app-mesas>
 
-<!--
+				<app-user-carreras [hidden]="!mesas.selectedMesa"></app-user-carreras>
+				<button *ngIf="mesas.selectedMesa && carreras.selectedCarrera && carreras.materias.selectedMateria" (click)="generateLog()" >Generar log</button>
 
-&& carreras.selectedCarrera && carreras.materias.selectedMateria)
--->
+			</div>
+		</div>
+	</div>
+</div>
