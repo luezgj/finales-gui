@@ -1,0 +1,21 @@
+<form [formGroup]="carreraForm" (ngSubmit)="add(carreraForm)">
+  <input formControlName="nombre" placeholder="Nombre de la carrera" [attr.disabled]="isEdit ? true : null">
+  <input type="number" formControlName="cantidadMaterias" placeholder="Cantidad de materias:">
+	<button type="button" (click)="addSubjects(carreraForm.get('cantidadMaterias').value)">Agregar materias</button>
+
+	<div>
+		<div formArrayName="subjects"
+		 		*ngFor="let subject of carreraForm.get('subjects').controls; let i = index;">
+			    <input placeholder="Nombre de la materia" value="{{ subject.value }}" formControlName="{{ i }}">
+		  		<button type="button" (click)="deleteSubject(i)">Borrar</button>
+		</div>
+		<button type="button" (click)="addSubjects(1)">+1</button>
+	</div>
+
+	<button
+      type="submit"
+      class="btn btn-primary"
+      [attr.disabled]="submitting ? true : null"
+      [innerText]="submitBtnText"></button>
+
+</form>

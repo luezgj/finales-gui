@@ -1,0 +1,14 @@
+<h1>Administración de carreras</h1>
+
+<h2>Agregar Carrera</h2>
+<app-carrera-form (edit)="carreraAdded($event)"></app-carrera-form>
+
+<h2>Lista de carreras</h2>
+<ul class="carreras">
+  <li *ngFor="let carrera of carreras; let i=index;">
+  	<span class="badge">{{carrera.nombre}}</span>
+  	<button (click)="updateCarrera(carrera)">Editar</button>
+    <button (click)="delCarrera(carrera,i)">X</button>
+    <app-carrera-form (edit)="carreraUpdated($event)" *ngIf="carrera.nombre == selectedCarrera" [carreraIn]="carrera"></app-carrera-form>
+  </li>
+</ul>

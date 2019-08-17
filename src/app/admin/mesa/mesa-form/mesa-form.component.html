@@ -1,0 +1,31 @@
+<form (ngSubmit)="send()">
+  <input id="name" name="name" class="form-control"
+      required minlength="4"
+      [(ngModel)]="newMesa.nombre" #name="ngModel" >
+  <div *ngIf="name.invalid && (name.dirty || name.touched)"
+    class="alert alert-danger">
+	  <div *ngIf="name.errors.required">
+	    Debe ingresar un nombre a la mesa.
+	  </div>
+	  <div *ngIf="name.errors.minlength">
+	    El nombre debe tener al menos cuatro caracteres.
+	  </div>
+	</div>
+
+
+	<input type="date" id="desde" name="desde" class="form-control"
+      required appForbiddenName="bob"
+      [(ngModel)]="newMesa.fechaDesde" #desde="ngModel" >
+
+	<input type="date" id="hasta" name="hasta" class="form-control"
+      required appForbiddenName="bob"
+      [(ngModel)]="newMesa.fechaHasta" #hasta="ngModel" >
+
+	<button
+      type="submit"
+      class="btn btn-primary"
+      
+      [innerText]="submitBtnText"></button>
+  		<!-- [attr.disabled]="mesaForm.invalid || submitting ? true : null" -->
+
+</form>

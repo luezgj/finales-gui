@@ -1,23 +1,17 @@
 import { Component, OnInit } from '@angular/core';
-import {Mesa } from '../model/mesa'
-
+import { ViewEncapsulation } from '@angular/core';
 
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.scss']
+  styleUrls: ['../app.component.scss','./dashboard.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class DashboardComponent implements OnInit {
-  	
-	constructor() {
-	
-	}
 
-	ngOnInit() {
+  constructor() { }
+
+  ngOnInit() {
   }
 
-
-  registrarLogMesa(mesaARegistrar:Mesa){
-  	
-  }
 }

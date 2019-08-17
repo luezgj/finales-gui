@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DashboardComponent } from './dashboard.component';
+import { UsrCarreraSubsComponent } from './usr-carrera-subs.component';
 
-describe('DashboardComponent', () => {
-  let component: DashboardComponent;
-  let fixture: ComponentFixture<DashboardComponent>;
+describe('UsrCarreraSubsComponent', () => {
+  let component: UsrCarreraSubsComponent;
+  let fixture: ComponentFixture<UsrCarreraSubsComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ DashboardComponent ]
+      declarations: [ UsrCarreraSubsComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(DashboardComponent);
+    fixture = TestBed.createComponent(UsrCarreraSubsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

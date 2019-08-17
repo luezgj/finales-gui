@@ -1,0 +1,11 @@
+<h2>Inscripcion</h2>
+<h3>Seleccione a qué carreras se quiere inscribir</h3>
+
+<ul class="carreras">
+  <li *ngFor="let carrera of carreras">
+  	<span class="badge">{{carrera.nombre}}</span>
+  	<button (click)="selectedCarreraEvent(carrera)">Seleccionar</button>
+  </li>
+</ul>
+
+<button (click)="setCarreras(carrera)">Inscribirse</button>

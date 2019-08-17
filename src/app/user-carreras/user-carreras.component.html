@@ -1,0 +1,11 @@
+<h2>Inscripcion</h2>
+<h3>Carrera a la que pertenece la materia a la que se quiere anotar</h3>
+
+<ul class="carreras">
+  <li *ngFor="let carrera of carreras">
+  	<span class="badge">{{carrera.nombre}}</span>
+  	<button (click)="setCarrera(carrera)">Seleccionar</button>
+  </li>
+</ul>
+
+<app-inscr-materias [hidden]="!this.selectedCarrera" [carrera]="this.selectedCarrera"></app-inscr-materias>

@@ -1,0 +1,9 @@
+<h2>Inscripcion</h2>
+<h3>Seleccione la materia a la cual inscribirse</h3>
+
+<ul class="materias">
+  <li *ngFor="let materia of materias">
+      <span class="badge">{{materia}}</span>
+      <button (click)="selectMateria(materia)">Seleccionar</button>
+  </li>
+</ul>

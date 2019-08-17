@@ -1,0 +1,9 @@
+<div *ngIf="log">
+  <h2>Detalle {{log.fecha | uppercase}}</h2>
+  <div><span>ID: </span>{{log.id}}</div>
+  <div><span>Carrera: </span>{{log.carrera}}</div>
+  <div><span>Materia: </span>{{log.materia}}</div>
+  <div><span>Mesa: </span>{{log.mesa}}</div>
+  <div><span>Estado: </span>{{log.estado}}</div>
+  <button (click)="goBack()">go back</button>
+</div>
