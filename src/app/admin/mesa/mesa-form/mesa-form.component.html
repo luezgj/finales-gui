@@ -1,31 +1,38 @@
-<form (ngSubmit)="send()">
-  <input id="name" name="name" class="form-control"
-      required minlength="4"
-      [(ngModel)]="newMesa.nombre" #name="ngModel" >
-  <div *ngIf="name.invalid && (name.dirty || name.touched)"
-    class="alert alert-danger">
-	  <div *ngIf="name.errors.required">
-	    Debe ingresar un nombre a la mesa.
-	  </div>
-	  <div *ngIf="name.errors.minlength">
-	    El nombre debe tener al menos cuatro caracteres.
-	  </div>
-	</div>
+<form class="forms-sample" (ngSubmit)="send()">
+  <div class="form-group row">
+      <div class="col-sm-4">
+        <input id="name" name="name" class="form-control"
+          required minlength="4"
+          [(ngModel)]="newMesa.nombre" #name="ngModel" >
+        <div *ngIf="name.invalid && (name.dirty || name.touched)"
+        class="alert alert-danger">
+      	  <div *ngIf="name.errors.required">
+      	    Debe ingresar un nombre a la mesa.
+      	  </div>
+      	  <div *ngIf="name.errors.minlength">
+      	    El nombre debe tener al menos cuatro caracteres.
+      	  </div>
+    	  </div>
+      </div>
 
+    <div class="col-sm-3">
+  	<input type="date" id="desde" name="desde" class="form-control"
+        required appForbiddenName="bob"
+        [(ngModel)]="newMesa.fechaDesde" #desde="ngModel" >
+    </div>
 
-	<input type="date" id="desde" name="desde" class="form-control"
-      required appForbiddenName="bob"
-      [(ngModel)]="newMesa.fechaDesde" #desde="ngModel" >
+    <div class="col-sm-3">
+  	<input type="date" id="hasta" name="hasta" class="form-control"
+        required appForbiddenName="bob"
+        [(ngModel)]="newMesa.fechaHasta" #hasta="ngModel" >
+    </div>
 
-	<input type="date" id="hasta" name="hasta" class="form-control"
-      required appForbiddenName="bob"
-      [(ngModel)]="newMesa.fechaHasta" #hasta="ngModel" >
-
-	<button
-      type="submit"
-      class="btn btn-primary"
-      
-      [innerText]="submitBtnText"></button>
-  		<!-- [attr.disabled]="mesaForm.invalid || submitting ? true : null" -->
+  	<button
+        type="submit"
+        class="btn btn-success col-sm-2"
+        
+        [innerText]="submitBtnText"></button>
+    		<!-- [attr.disabled]="mesaForm.invalid || submitting ? true : null" -->
+  </div>
 
 </form>

@@ -1,7 +1,23 @@
-<h1>Administración de mesas</h1>
+<h2>Administración de mesas</h2>
 
-<h2>Agregar Mesa</h2>
-<app-mesa-form (add)="mesaAdded($event)"></app-mesa-form>
+<div class="row">
+	<div class="col-12 grid-margin">
+	<div class="card">
+		<div class="card-body">
+			<h4 class="card-title">Agregar Mesa</h4>
+			<app-mesa-form (add)="mesaAdded($event)"></app-mesa-form>
+		</div>
+	</div>
+	</div>
+</div>
 
-<h2>Lista de mesas</h2>
-<app-mesas [add]="this.evento"></app-mesas>
+<div class="row">
+	<div class="col-12 grid-margin">
+	<div class="card">
+		<div class="card-body">
+			<h4 class="card-title">Lista de mesas</h4>
+			<app-mesas [add]="this.evento"></app-mesas>
+		</div>
+	</div>
+	</div>
+</div>

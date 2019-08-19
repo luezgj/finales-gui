@@ -1,20 +1,24 @@
-<form [formGroup]="carreraForm" (ngSubmit)="add(carreraForm)">
-  <input formControlName="nombre" placeholder="Nombre de la carrera" [attr.disabled]="isEdit ? true : null">
-  <input type="number" formControlName="cantidadMaterias" placeholder="Cantidad de materias:">
-	<button type="button" (click)="addSubjects(carreraForm.get('cantidadMaterias').value)">Agregar materias</button>
-
+<form [formGroup]="carreraForm" (ngSubmit)="add(carreraForm)" class="forms-sample">
+	<div class="form-group row">
+	  <div class="col-sm-5"><input class="form-control" formControlName="nombre" placeholder="Nombre de la carrera" [attr.disabled]="isEdit ? true : null"></div>
+	  <div class="col-sm-2"><input class="form-control" type="number" formControlName="cantidadMaterias" placeholder="Cantidad de materias:"></div>
+		<button type="button" class="btn btn-primary" (click)="addSubjects(carreraForm.get('cantidadMaterias').value)">Agregar materias</button>
+	</div>
 	<div>
 		<div formArrayName="subjects"
 		 		*ngFor="let subject of carreraForm.get('subjects').controls; let i = index;">
-			    <input placeholder="Nombre de la materia" value="{{ subject.value }}" formControlName="{{ i }}">
-		  		<button type="button" (click)="deleteSubject(i)">Borrar</button>
+		 		<div class="form-group row">
+		 			<div class="col-sm-5">
+			    <input class="form-control" placeholder="Nombre de la materia" value="{{ subject.value }}" formControlName="{{ i }}"></div>
+		  		<button class="btn btn-danger" type="button" (click)="deleteSubject(i)"><i class="fa fa-times-rectangle"></i></button>
+				</div>
 		</div>
-		<button type="button" (click)="addSubjects(1)">+1</button>
+		<button class="btn btn-primary" type="button" (click)="addSubjects(1)"><i class="fa fa-plus-square"></i>1</button>
 	</div>
 
 	<button
       type="submit"
-      class="btn btn-primary"
+      class="btn btn-success"
       [attr.disabled]="submitting ? true : null"
       [innerText]="submitBtnText"></button>
 
