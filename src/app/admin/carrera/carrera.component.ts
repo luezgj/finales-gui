@@ -32,9 +32,10 @@ export class CarreraComponent implements OnInit {
   }
 
   carreraUpdated(carrera : Carrera): void{
-    console.log("Carrera agregada");
+    console.log("Carrera modificada");
     console.log(carrera);
     this.carreras[this.carreras.findIndex(c => c.nombre == carrera.nombre)] = carrera;
+    this.selectedCarrera='';
   }
 
   updateCarrera(carrera : Carrera): void {

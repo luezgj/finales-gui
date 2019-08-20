@@ -1,6 +1,9 @@
 import { NgModule } from '@angular/core';    
 import { Routes, RouterModule } from '@angular/router'; 
 
+import {UnlogedLayoutComponent} from './unloged-layout/unloged-layout.component';
+import {LogedLayoutComponent} from './loged-layout/loged-layout.component';
+
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';  
 
@@ -20,77 +23,89 @@ import { AdminGuard } from './auth/admin.guard';
       {    
         path: '',    
         redirectTo: 'dashboard',    
-        pathMatch: 'full',    
+        pathMatch: 'full'    
       },    
-      {    
-        path: 'register',    
-        component: RegisterComponent,    
-        data: {    
-          title: 'Registro'    
-        }    
-      },
-      {    
-        path: 'login',    
-        component: LoginComponent,    
-        data: {    
-          title: 'Login'    
-        }    
-      },    
-      {    
-        path: 'dashboard',    
-        component: DashboardComponent,
-        canActivate: [AuthGuard],    
-        data: {    
-          title: 'Inicio'    
-        }    
-      },    
-      {    
-        path: 'admin',    
-        canActivate: [
-          AuthGuard,
-          AdminGuard
-        ],    
+      {
+        path: '',
+        component: UnlogedLayoutComponent,
         children: [
-          {
-            path: 'carrera',    
-            component: CarreraComponent,    
+          {    
+            path: 'register',    
+            component: RegisterComponent,    
             data: {    
-              title: 'Administración de carreras'    
-            }
+              title: 'Registro'    
+            }    
           },
-          {
-            path: 'mesa',    
-            component: MesaComponent,    
+          {    
+            path: 'login',    
+            component: LoginComponent,    
             data: {    
-              title: 'Administración de mesas'    
-            }
+              title: 'Login'    
+            }    
           }
         ]
       },
+      {
+        path: '',
+        component: LogedLayoutComponent,
+        children: [   
+          {    
+            path: 'dashboard',    
+            component: DashboardComponent,
+            canActivate: [AuthGuard],    
+            data: {    
+              title: 'Inicio'    
+            }    
+          },    
+          {    
+            path: 'admin',    
+            canActivate: [
+              AuthGuard,
+              AdminGuard
+            ],    
+            children: [
+              {
+                path: 'carrera',    
+                component: CarreraComponent,    
+                data: {    
+                  title: 'Administración de carreras'    
+                }
+              },
+              {
+                path: 'mesa',    
+                component: MesaComponent,    
+                data: {    
+                  title: 'Administración de mesas'    
+                }
+              }
+            ]
+          },
 
-      {    
-        path: 'logs',    
-        component: LogsComponent,    
-        data: {    
-          title: 'Lista de logs'    
-        }    
-      },
+          {    
+            path: 'logs',    
+            component: LogsComponent,    
+            data: {    
+              title: 'Lista de logs'    
+            }    
+          },
 
-      {    
-        path: 'carreras',    
-        component: UsrCarreraSubsComponent,    
-        data: {    
-          title: 'Carreras del usuario'    
-        }    
-      },
-      
-      {    
-        path: 'detalle-log/:id',    
-        component: DetalleLogComponent,    
-        data: {    
-          title: 'Detalles de log'    
-        }    
-      }    
+          {    
+            path: 'carreras',    
+            component: UsrCarreraSubsComponent,    
+            data: {    
+              title: 'Carreras del usuario'    
+            }    
+          },
+          
+          {    
+            path: 'detalle-log/:id',    
+            component: DetalleLogComponent,    
+            data: {    
+              title: 'Detalles de log'    
+            }    
+          }
+        ]
+      }       
     ];    
         
     @NgModule({    

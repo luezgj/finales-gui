@@ -35,6 +35,8 @@ import { MesaComponent } from './admin/mesa/mesa.component';
 import { MesaFormComponent } from './admin/mesa/mesa-form/mesa-form.component';
 import { NewLogComponent } from './new-log/new-log.component';
 import { UsrCarreraSubsComponent } from './usr-carrera-subs/usr-carrera-subs.component';
+import { UnlogedLayoutComponent } from './unloged-layout/unloged-layout.component';
+import { LogedLayoutComponent } from './loged-layout/loged-layout.component';
 
 
 @NgModule({
@@ -57,7 +59,9 @@ import { UsrCarreraSubsComponent } from './usr-carrera-subs/usr-carrera-subs.com
     MesaComponent,
     MesaFormComponent,
     NewLogComponent,
-    UsrCarreraSubsComponent
+    UsrCarreraSubsComponent,
+    UnlogedLayoutComponent,
+    LogedLayoutComponent
 
   ],
   imports: [

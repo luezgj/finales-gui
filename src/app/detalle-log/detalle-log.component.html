@@ -1,9 +1,24 @@
 <div *ngIf="log">
-  <h2>Detalle {{log.fecha | uppercase}}</h2>
-  <div><span>ID: </span>{{log.id}}</div>
-  <div><span>Carrera: </span>{{log.carrera}}</div>
-  <div><span>Materia: </span>{{log.materia}}</div>
-  <div><span>Mesa: </span>{{log.mesa}}</div>
-  <div><span>Estado: </span>{{log.estado}}</div>
-  <button class="btn btn-danger btn-fw" type="button" (click)="goBack()">atras</button>
+  <div class="row">
+		<div class="col-lg-12 grid-margin">
+			<div class="card">
+				<div class="card-body">
+					<h4 class="card-title">Detalle {{log.fecha | uppercase}}</h4>
+					<table class="table">
+					  <tr>
+					  	<td><span class="badge badge-pill badge-primary">ID: </span></td><td>{{log.id}}</td>
+					  <tr>
+					  	<td><span class="badge badge-pill badge-primary">Carrera: </span></td><td>{{log.carrera}}</td>
+					  <tr>
+					  	<td><span class="badge badge-pill badge-primary">Materia: </span></td><td>{{log.materia}}</td>
+					  <tr>
+					  	<td><span class="badge badge-pill badge-primary">Mesa: </span></td><td>{{log.mesa}}</td>
+					  <tr>
+					  	<td><span class="badge badge-pill badge-primary">Estado: </span></td><td>{{log.estado}}</td>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+  <button class="btn btn-danger btn-fw" type="button" (click)="goBack()">Atras</button>
 </div>

@@ -19,6 +19,7 @@ export class InscrMateriasComponent implements OnInit {
 
   materias: string[];
   selectedMateria: string;
+  areSelectedMateria=false;
 
   constructor(
     private logService: LogService,
@@ -42,12 +43,14 @@ export class InscrMateriasComponent implements OnInit {
     if(changes.carrera && changes.carrera.currentValue){
       const carreraChange: SimpleChange = changes.carrera;
       this.selectedMateria=null;
+      this.areSelectedMateria=false;
       this.materias = carreraChange.currentValue.materias;
     }
 }
 
   selectMateria(newSelectedMateria): void{
     this.selectedMateria=newSelectedMateria;
+    this.areSelectedMateria=true;
   }
 
 }

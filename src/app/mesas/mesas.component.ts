@@ -11,6 +11,7 @@ import { TokenStorageService } from '../auth/token-storage.service'
 export class MesasComponent implements OnInit {
   mesas: Mesa[];
   selectedMesa: Mesa;
+  areSelectedMesa: boolean=false;
   isInMesaAdmin: boolean= false;
 
   @Input() set add(evento : EventEmitter<Mesa>){
@@ -30,6 +31,7 @@ export class MesasComponent implements OnInit {
 
   selectMesa(addLogMesa: Mesa): void {
     this.selectedMesa=addLogMesa;
+    this.areSelectedMesa=true;
   }
 
   mesaAdded(mesa: Mesa): void {

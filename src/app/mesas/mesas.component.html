@@ -1,6 +1,9 @@
-<ul class="mesas">
-  <li *ngFor="let mesa of mesas">
-    <span class="badge">{{mesa.nombre}}</span> {{mesa.fechaDesde}} {{mesa.fechaHasta}}
-    <button *ngIf="!this.isInMesaAdmin" type="button" class="btn btn-success btn-fw" (click)="selectMesa(mesa)">Anotarse</button>
-  </li>
-</ul>
+<div class="table-responsive">
+	<table class="table">
+	  <tr *ngFor="let mesa of mesas" [ngClass]="isInMesaAdmin?'':(areSelectedMesa&&(selectedMesa.nombre==mesa.nombre)?'table-success':'table-primary')">
+	  	<td>{{mesa.nombre}}</td>
+	  	<td>{{mesa.fechaDesde}} </td>
+	  	<td>{{mesa.fechaHasta}}</td>
+	  	<td *ngIf="!this.isInMesaAdmin"><button type="button" class="btn btn-success btn-fw" (click)="selectMesa(mesa)">Seleccionar</button></td>
+	  </tr>
+	</table>

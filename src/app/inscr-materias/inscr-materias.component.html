@@ -1,9 +1,8 @@
-<h2>Inscripcion</h2>
-<h3>Seleccione la materia a la cual inscribirse</h3>
+<h4 class="card-title">Seleccione la materia a la cual inscribirse</h4>
 
-<ul class="materias">
-  <li *ngFor="let materia of materias">
-      <span class="badge">{{materia}}</span>
-      <button (click)="selectMateria(materia)">Seleccionar</button>
-  </li>
-</ul>
+<table class="table">
+  <tr *ngFor="let materia of materias" [ngClass]="areSelectedMateria&&(selectedMateria==materia)?'table-success':'table-primary'">
+  	<td>{{materia}}</td>
+  	<td><button class="btn btn-success" (click)="selectMateria(materia)">Seleccionar</button></td>     
+  </tr>
+</table>
